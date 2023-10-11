@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- cdn css -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <!-- cdn icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.18.0/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bitter&family=PT+Sans:wght@700&family=Roboto&family=Slabo+27px&family=Yusei+Magic&display=swap"
+      rel="stylesheet"
+    />
+    <!-- cdn js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+      defer>
+    </script>
+
+    <title>Portofolio Muhammad Ryhan</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Bitter", serif;
+      }
+      .myimg {
+        width: 300px;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        margin: 20% 0% 5% 30%;
+        border-radius: 50%;
+      }
+      .compp {
+        color: #1e90ff;
+        font-size: 15px;
+        margin: 0% 0% 20% 25%;
+        font-family: "Bitter", serif;
+      }
+      #profile {
+        background: linear-gradient(to bottom, #000000, #0e365e);
+      }
+      .myprofile h5 {
+        color: white;
+        font-size: 50px;
+        font-weight: bold;
+        margin: 0% 0% 10% 0%;
+        font-family: "Roboto", sans-serif;
+      }
+      .myprofile p {
+        color: white;
+        font-family: "Bitter", serif;
+      }
+      #porto {
+        background: linear-gradient(to bottom, #0e365e, #135ca5);
+      }
+      .loker {
+        padding: 5% 0 8% 0;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+      }
+      #contact {
+        background: linear-gradient(to bottom, #135ca5, #1e90ff);
+      }
+      .mycont {
+        max-width: 60%;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .submit {
+        padding-bottom: 10%;
+        margin-left: 20%;
+      }
+      footer {
+        background: linear-gradient(to bottom, #1e90ff, #000000);
+        padding: 20px;
+  text-align: center;
+      }
+      footer p {
+        margin: 0;
+        color: white;
+      }
+      footer a {
+        margin: 10px;
+      }
+      footer img {
+        border-radius: 30%;
+        width: 30px;
+        height: 30px;
+      }
+    </style>
+
+    <script>
+      function posting() {
+        let name = $('#name').val();
+        let mail = $('#mail').val();
+        let comment = $('#comment').val();
+        $.ajax({
+          type: "POST",
+          url: "/contme",
+          data: {
+            name_give : name,
+            mail_give : mail,
+            comment_give : comment
+          },
+          success: function (response) {
+            alert(response["msg"]);
+            window.location.reload();
+          },
+        });
+      }
+    </script>
+
+  </head>
+  <body>
+    <!-- start section navbar -->
+    <section id="navbar">
+      <div class="container-fluid bg-dark">
+        <div class="mynav">
+          <header class="d-flex flex-wrap justify-content-center py-6">
+            <a
+              href="#"
+              class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+            >
+              <svg class="bi me-2" width="40" height="32">
+                <use xlink:href="#bootstrap" />
+              </svg>
+              <span style="color: white" class="fs-3"
+                ><span style="color: #1e90ff">MR</span>yhan</span
+              >
+            </a>
+            <ul class="nav nav-pills">
+              <li class="nav-item">
+                <a href="#home" class="nav-link btn btn-outline-primary"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="#profile" class="nav-link btn btn-outline-primary"
+                  >Profile</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="#porto" class="nav-link btn btn-outline-primary"
+                  >Portofolio</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="#contact" class="nav-link btn btn-outline-primary"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </header>
+        </div>
+      </div>
+    </section>
+    <!-- end section navbar -->
+
+    <!-- start section home -->
+    <section id="home">
+      <div
+        id="carouselExampleControls"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="static/name.png" class="d-block w-100" alt="iyan" />
+          </div>
+          <div class="carousel-item">
+            <img src="static/group.png" class="d-block w-100" alt="group" />
+          </div>
+          <div class="carousel-item">
+            <img src="static/quote.png" class="d-block w-100" alt="quote" />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+    <!-- end section home -->
+
+    <!-- start section profile -->
+    <section id="profile">
+      <div class="row py-4 mx-4 align-items-center">
+        <div class="col-sm-12 col-md-8 col-lg-6">
+          <div class="card-body">
+            <img class="myimg" src="static/iyan.jpg" alt="iyan" />
+            <div class="compp">
+              <p class="card-text">
+                Muhammad Ryhan <span style="color: white">|</span> Kelompok 4
+                <span style="color: white">|</span> Universitas Tadulako
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-0 col-md-4 col-lg-6">
+          <div class="card-body">
+            <div class="myprofile">
+              <h5 class="explore">
+                <span style="color: #1e90ff">Explore</span> <br />My Portofolio
+              </h5>
+              <p>
+                Assalamu`alaikum Warahmatullah... <br />
+                Haloo.. Kenalin nama ku <b>Muhammad ryhan</b> Aku berasal dari
+                Kampus Kaktus
+                <a
+                  href="https://untad.ac.id/"
+                  target="_blank"
+                  style="text-decoration: none"
+                  >Universitas Tadulako.</a
+                >
+                Aku merupakan mahasiswa semester 5 jurusan
+                <b>Teknologi Informasi.</b> Aku berasal dari kota Palu tepatnya
+                di keluarahan Tondo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end section profile -->
+
+    <!-- start section portofolio -->
+    <section id="porto">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col-sm-4 col-md-4 col-lg-4">
+          <div class="card h-100">
+            <img src="static/cv.jpg" class="card-img-top" alt="cv" />
+            <div class="card-body">
+              <a
+                href="https://docs.google.com/document/d/1K_ep1ILF9b-bSz3hW68DngE28sBkQrD4/edit?usp=drive_link&ouid=107421191318167344675&rtpof=true&sd=true"
+                target="_blank"
+                >Selengkapnya...</a
+              >
+              <p class="card-text">
+                Ini merupakan cv terbaru yang saya miliki, dengan fokus terhadap
+                Full stack web.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+          <div class="card h-100">
+            <img src="static/jwd.jpg" class="card-img-top" alt="jwd" />
+            <div class="card-body">
+              <a
+                href="https://drive.google.com/file/d/1BzA-Kn7NF-R8JNL9_bYAckmnv2K1EqWo/view?usp=sharing"
+                target="_blank"
+                >Selengkapnya...</a
+              >
+              <p class="card-text">
+                Certificate of competence, is competent in the area of
+                Programming and Software Development.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+          <div class="card h-100">
+            <img src="static/porto1.jpg" class="card-img-top" alt="cv" />
+            <div class="card-body">
+              <a
+                href="https://drive.google.com/file/d/1zvnYTV04hvvlp0DWhfwIakOVHViOyfd9/view?usp=sharing"
+                target="_blank"
+                >Selengkapnya...</a
+              >
+              <p class="card-text">
+                Merupakan portofolio yang pertama kali saya buat.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="loker">
+        <h1>INFO LOKER !!</h1>
+      </div>
+    </section>
+    <!-- end section portofolio -->
+
+    <!-- start section contact -->
+    <section id="contact">
+      <div class="mycont">
+        <h1>Contact Me <i class="bi bi-telephone"></i></h1>
+        <div class="row">
+          <div class="col">
+            <input 
+              id="name"
+              type="text"
+              class="form-control"
+              placeholder="Your name"
+              aria-label="name"
+            />
+          </div>
+          <div class="col">
+            <input 
+              id="mail"
+              type="text"
+              class="form-control"
+              placeholder="Your email"
+              aria-label="email"
+            />
+          </div>
+        </div>
+        <div class="form-floating">
+          <textarea
+            id="comment"
+            class="form-control"
+            placeholder="Leave a comment here"
+          ></textarea>
+          <label for="floatingTextarea"> Silahkan di isi..</label>
+        </div>
+      </div>
+      <div class="submit">
+        <button onclick="posting()" class="btn btn-dark" type="button">
+          Kirim
+        </button>
+      </div>
+    </section>
+    <!-- end section contact -->
+
+    <!-- start section footer -->
+    <section id="footer">
+      <footer>
+        <p>&copy; <span style="color: #1e90ff">MR</span>yhan</p>
+          <a href="https://www.instagram.com/" target="_blank">
+            <img src="static/ig.gif" alt="Instagram" /><i class="bi bi-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/MhmdRYHAN2402" target="_blank">
+            <img src="static/fb.gif" alt="Facebook"/>
+          </a>
+          <a href="mhmdryhan02@email.com" target="_blank">
+            <img src="static/email.gif" alt="Email"/>
+          </a>
+        </div>
+      </footer>
+    </section>
+    <!-- end section footer -->
+  </body>
+</html>
